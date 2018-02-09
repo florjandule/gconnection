@@ -1,18 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.casper.githubconnection.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.casper.githubconnection.MainActivity"
+    android:background="@drawable/bck">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineButtonsTop"
+        android:layout_width="1dp"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.525"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineButtonsBottom"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9595"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineButtonsLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.0405"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineButtonsRight"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.959"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/guidelineButtonsBottom"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineButtonsTop"
+        app:layout_constraintLeft_toRightOf="@+id/guidelineButtonsLeft"
+        app:layout_constraintRight_toLeftOf="@+id/guidelineButtonsRight"
+        android:background="@drawable/button_background"
+        >
+
+        <Button
+            android:id="@+id/buttonDo"
+            style="@style/MelodyButtonStyle"
+            android:background="@drawable/selector_do"
+            android:onClick="PlayDo"
+            android:text="do"
+            />
+
+        <Button
+            android:id="@+id/buttonRe"
+            style="@style/MelodyButtonStyle"
+            android:background="@drawable/selector_re"
+            android:onClick="PlayRe"
+            android:text="re" />
+
+        <Button
+            android:id="@+id/buttonMi"
+            style="@style/MelodyButtonStyle"
+            android:background="@drawable/selector_mi"
+            android:onClick="PlayMi"
+            android:text="mı" />
+
+        <Button
+            android:id="@+id/buttonFa"
+            style="@style/MelodyButtonStyle"
+            android:background="@drawable/selector_fa"
+            android:onClick="PlayFa"
+            android:text="fa" />
+
+        <Button
+            android:id="@+id/buttonSol"
+            style="@style/MelodyButtonStyle"
+            android:background="@drawable/selector_sol"
+            android:onClick="PlaySol"
+            android:text="sol" />
+
+        <Button
+            android:id="@+id/buttonLa"
+            style="@style/MelodyButtonStyle"
+            android:background="@drawable/selector_la"
+            android:onClick="PlayLa"
+            android:text="la" />
+
+        <Button
+            android:id="@+id/buttonSi"
+            style="@style/MelodyButtonStyle"
+            android:background="@drawable/selector_si"
+            android:onClick="PlaySi"
+            android:text="sı" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

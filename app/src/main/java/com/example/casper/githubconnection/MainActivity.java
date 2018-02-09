@@ -1,14 +1,16 @@
 package com.example.casper.githubconnection;
 
+import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int REQUEST_CODE_ONE = 100;
+    private static final int REQUEST_CODE_SARKI_LISTESI = 100;
 
     private final int   NR_OF_SIMULTANEOUS_SOUNDS = 7;
     private final float LEFT_VOLUME = 1.0f;
@@ -120,6 +122,31 @@ public class MainActivity extends AppCompatActivity {
         mSoundPool.play(mSiSoundId, LEFT_VOLUME, RIGHT_VOLUME, NO_LOOP, PRIORITY, NORMAL_PLAY_RATE);
     }
 
-    public void SarkiListesiAc(View v){
+    public void BtnListClicked(View v){
+        Intent sarkiListesiIntent = new Intent(this, SarkiYukleme.class);
+        sarkiListesiIntent.putExtra("ListeUzunlugu", sarkiAdi.length);
+        startActivityForResult(sarkiListesiIntent, REQUEST_CODE_SARKI_LISTESI);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == REQUEST_CODE_SARKI_LISTESI){
+            if(resultCode == RESULT_OK){
+                int secilenSarkiIndeksi = data.getIntExtra("SecilenSarkiIndeksi", -1);
+                if(secilenSarkiIndeksi != -1){
+                    Toast.makeText(getApplicationContext(), String.valueOf(secilenSarkiIndeksi), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
+
+    public String[] SarkiAdiAl(){
+        return sarkiAdi;
+    }
+
+    public String[] SarkiMelodisiAl(){
+        return sarkiMelodisi;
     }
 }

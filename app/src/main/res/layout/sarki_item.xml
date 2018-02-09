@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:text="TextView"
+        android:textSize="35dp"
+        android:textAlignment="center"
+        android:background="@drawable/selector_sarki_item"/>
+
+</android.support.constraint.ConstraintLayout>

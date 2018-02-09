@@ -7,6 +7,49 @@
     tools:context="com.example.casper.githubconnection.MainActivity"
     android:background="@drawable/bck">
 
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineListTop"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12"/>
+
+    <android.support.constraint.Guideline
+    android:id="@+id/guidelineListBottom"
+    android:layout_width="1dp"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintGuide_percent="0.25"/>
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineListLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineListRight"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.32"/>
+
+
+    <Button
+        android:id="@+id/btnList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/selector_button_list"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineListTop"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineListBottom"
+        app:layout_constraintLeft_toRightOf="@id/guidelineListLeft"
+        app:layout_constraintRight_toLeftOf="@id/guidelineListRight"
+        />
+
+
     <android.support.constraint.Guideline
         android:id="@+id/guidelineButtonsTop"
         android:layout_width="1dp"

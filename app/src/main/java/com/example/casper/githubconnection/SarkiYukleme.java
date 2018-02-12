@@ -17,52 +17,17 @@ import android.widget.TextView;
 
 public class SarkiYukleme extends AppCompatActivity{
 
-   private final String[] sarkiAdi = {
-            "Şarkı 1"
-            , "Şarkı 2"
-            , "Şarkı 3"
-            , "Şarkı 4"
-            , "Şarkı 5"
-            , "Şarkı 6"
-            , "Şarkı 7"
-            , "Şarkı 8"
-            , "Şarkı 9"
-            , "Şarkı 10"
-            , "Şarkı 11"
-            , "Şarkı 12"
-            , "Şarkı 13"
-            , "Şarkı 14"
-            , "Şarkı 15"
-    };
-
-    private final String sarkiMelodisi[] = {
-            "sol mi mi mi sol mi mi mi sol la sol mi fa re fa re re fa re re re fa sol fa re re do"
-            ,"re mi fa sol la si"
-            ,"do re mi fa sol la si"
-            ,"do re mi fa sol la si do re mi fa sol la si"
-            ,"do re mi fa fa re re sol la si"
-            ,"mi fa re sol la re re re fa re mi fa sol la si"
-            ,"fa re mi do re mi fa sol la si"
-            ,"mi sol la re do re mi fa sol la si"
-            ,"la sol la sol la sol do re mi fa sol la si"
-            ,"si la si la do re mi fa sol la si"
-            ,"do do do do do re mi fa sol la si"
-            ,"fa fa fa re re do re mi fa sol la si"
-            ,"mi fa sol re mi fa sol do re mi fa sol la si"
-            ,"sol mi mi mi sol mi mi mi sol la sol mi fa re do re mi fa sol la si"
-            ,"fa re re re fa re re re re sol sol sol do re mi fa sol la si"
-    };
 
     ListView lvSarkiListesi;
     CustomAdapter customAdapter;
-    int sarkiListesiUzunluk;
+    String[] sarkiAdi, sarkiMelodisi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sarki_array_list);
 
-        sarkiListesiUzunluk = getIntent().getIntExtra("ListeUzunlugu", 1);
+        SarkiListesiYukle();
         SarkiListesiOlustur();
     }
 
@@ -80,6 +45,13 @@ public class SarkiYukleme extends AppCompatActivity{
             Log.d("hata", e.getMessage());
         }
     }
+
+    public void SarkiListesiYukle(){
+        SarkiListesi sl = (SarkiListesi) getApplicationContext();
+        sarkiAdi = sl.getSarkiAdi();
+        sarkiMelodisi = sl.getSarkiMelodisi();
+    }
+
     class CustomAdapter extends BaseAdapter implements AdapterView.OnItemClickListener{
 
         public void onItemClick(AdapterView parent, View v, int position, long id) {
@@ -91,7 +63,7 @@ public class SarkiYukleme extends AppCompatActivity{
 
         @Override
         public int getCount() {
-            return sarkiListesiUzunluk;
+            return sarkiAdi.length;
         }
 
         @Override
@@ -109,7 +81,7 @@ public class SarkiYukleme extends AppCompatActivity{
             view = getLayoutInflater().inflate(R.layout.sarki_item, null);
 
             TextView textViewName = view.findViewById(R.id.textView2);
-            textViewName.setText("*    " + sarkiAdi[i]);
+            textViewName.setText(sarkiAdi[i]);
 
             lvSarkiListesi.setOnItemClickListener(this);
 

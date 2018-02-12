@@ -6,7 +6,10 @@ import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,47 +32,15 @@ public class MainActivity extends AppCompatActivity {
     private int mSiSoundId;
 
 
-    private final String[] sarkiAdi = {
-            "Şarkı 1"
-            , "Şarkı 2"
-            , "Şarkı 3"
-            , "Şarkı 4"
-            , "Şarkı 5"
-            , "Şarkı 6"
-            , "Şarkı 7"
-            , "Şarkı 8"
-            , "Şarkı 9"
-            , "Şarkı 10"
-            , "Şarkı 11"
-            , "Şarkı 12"
-            , "Şarkı 13"
-            , "Şarkı 14"
-            , "Şarkı 15"
-    };
-
-    private final String sarkiMelodisi[] = {
-            "sol mi mi mi sol mi mi mi sol la sol mi fa re fa re re fa re re re fa sol fa re re do"
-            ,"re mi fa sol la si"
-            ,"do re mi fa sol la si"
-            ,"do re mi fa sol la si do re mi fa sol la si"
-            ,"do re mi fa fa re re sol la si"
-            ,"mi fa re sol la re re re fa re mi fa sol la si"
-            ,"fa re mi do re mi fa sol la si"
-            ,"mi sol la re do re mi fa sol la si"
-            ,"la sol la sol la sol do re mi fa sol la si"
-            ,"si la si la do re mi fa sol la si"
-            ,"do do do do do re mi fa sol la si"
-            ,"fa fa fa re re do re mi fa sol la si"
-            ,"mi fa sol re mi fa sol do re mi fa sol la si"
-            ,"sol mi mi mi sol mi mi mi sol la sol mi fa re do re mi fa sol la si"
-            ,"fa re re re fa re re re re sol sol sol do re mi fa sol la si"
-    };
+    String[] sarkiAdi, sarkiMelodisi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SarkiListesiYukle();
+        SarkiyiEkranaYukle(0);
         LoadSounds();
     }
 
@@ -124,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void BtnListClicked(View v){
         Intent sarkiListesiIntent = new Intent(this, SarkiYukleme.class);
-        sarkiListesiIntent.putExtra("ListeUzunlugu", sarkiAdi.length);
         startActivityForResult(sarkiListesiIntent, REQUEST_CODE_SARKI_LISTESI);
     }
 
@@ -136,17 +106,23 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 int secilenSarkiIndeksi = data.getIntExtra("SecilenSarkiIndeksi", -1);
                 if(secilenSarkiIndeksi != -1){
-                    Toast.makeText(getApplicationContext(), String.valueOf(secilenSarkiIndeksi), Toast.LENGTH_SHORT).show();
+                    SarkiyiEkranaYukle(secilenSarkiIndeksi);
                 }
             }
         }
     }
 
-    public String[] SarkiAdiAl(){
-        return sarkiAdi;
+    public void SarkiListesiYukle(){
+        SarkiListesi sl = (SarkiListesi) getApplicationContext();
+        sarkiAdi = sl.getSarkiAdi();
+        sarkiMelodisi = sl.getSarkiMelodisi();
     }
 
-    public String[] SarkiMelodisiAl(){
-        return sarkiMelodisi;
+    public void SarkiyiEkranaYukle(int sarkiIndex){
+        TextView tvSarkiAdi = findViewById(R.id.tvSarkiAdi);
+        TextView tvSarkiMelodisi = findViewById(R.id.tvSarkiMelodisi);
+
+        tvSarkiAdi.setText(sarkiAdi[sarkiIndex].toString());
+        tvSarkiMelodisi.setText(sarkiMelodisi[sarkiIndex].toString());
     }
 }

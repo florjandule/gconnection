@@ -9,8 +9,8 @@ import android.app.Application;
 public class SarkiListesi extends Application {
 
     final String[] sarkiAdi = {
-            "Şarkı 1"
-            , "Şarkı 2"
+            "Jingle Bell"
+            , "Küçük Kurbağa"
             , "Şarkı 3"
             , "Şarkı 4"
             , "Şarkı 5"
@@ -27,19 +27,9 @@ public class SarkiListesi extends Application {
     };
 
     final String sarkiMelodisi[] = {
-            "mi mi mi wait\n" +
-                    "        mi mi mi wait\n" +
-                    "        mi sol do re mi wait wait\n" +
-                    "        fa fa fa wait\n" +
-                    "        mi mi mi wait\n" +
-                    "        re mi re sol wait wait\n" +
-                    "        mi mi mi wait\n" +
-                    "        mi mi mi wait\n" +
-                    "        mi sol do re mi wait wait\n" +
-                    "        fa fa fa wait\n" +
-                    "        mi mi mi wait\n" +
-                    "        sol sol fa re do."
-            ,"re mi fa sol la si"
+            "mi mi mi wait mi mi mi wait mi sol do re mi wait wait fa fa fa wait mi mi mi wait re mi re sol wait wait mi mi mi wait " +
+                    "mi mi mi wait mi sol do re mi wait wait fa fa fa wait mi mi mi wait sol sol fa re do."
+            ,"sol mi mi mi sol mi mi mi sol la sol mi fa re wait wait fa re re re fa re re re fa sol fa re re do."
             ,"do re mi fa sol la si"
             ,"do re mi fa sol la si do re mi fa sol la si"
             ,"do re mi fa fa re re sol la si"

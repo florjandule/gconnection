@@ -79,6 +79,45 @@
         android:textSize="22dp"
         />
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineSarkiCalLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.76"/>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guidelineSarkiCalRight"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.885" />
+
+    <Button
+        android:id="@+id/btnSarkiCal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@id/guidelineSarkiCalLeft"
+        app:layout_constraintRight_toLeftOf="@+id/guidelineSarkiCalRight"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineListTop"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineListBottom"
+        android:background="@drawable/selector_sarki_cal"
+        android:onClick="BtnSarkiCal_Clicked"
+        android:enabled="true"
+        android:visibility="visible"/>
+
+    <Button
+        android:id="@+id/btnSarkiCalIptal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toRightOf="@id/guidelineSarkiCalLeft"
+        app:layout_constraintRight_toLeftOf="@+id/guidelineSarkiCalRight"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineListTop"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineListBottom"
+        android:background="@drawable/selector_sarki_cal_iptal"
+        android:onClick="BtnSarkiCalIptal_Clicked"
+        android:enabled="true"
+        android:visibility="invisible"/>
 
 
     <android.support.constraint.Guideline
@@ -108,7 +147,7 @@
         android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.92"/>
+        app:layout_constraintGuide_percent="0.9224012" />
 
     <TextView
         android:id="@+id/tvSarkiMelodisi"
